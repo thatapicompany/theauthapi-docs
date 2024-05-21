@@ -19,12 +19,12 @@
   "topbarLinks": [
     {
       "name": "The Auth API",
-      "url": "mailto:hi@theauthapi.com"
+      "url": "mailto:hello@theauthapi.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.theauthapi.com"
+    "url": "https://app.theauthapi.com"
   },
   "tabs": [
     {
