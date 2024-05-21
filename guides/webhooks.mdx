@@ -1,0 +1,67 @@
+---
+title: Listening for Events
+description: Listen for realtime events on your API's key requests.
+icon: "webhook"
+---
+
+Listen for events on your project so your integration can automatically trigger reactions.
+
+The Auth API uses webhooks to notify your application when an event happens in your project. Webhooks are particularly useful for asynchronous events such as when a new API key is generated, first used, deleted or updated. We also support events for Auth Access and Project events.
+
+Supported events
+
+Event
+Trigger
+Notes
+
+API Keys Created Fires the moment a new Key is created
+API Key payloads will contain the API Key.
+
+Deleted
+Fires the moment the API is deleted
+
+Updated
+Fires any time the key is updated. For example, the metadata you choose to store on the key can be changed.
+
+First Used
+Fires the first time the key is authenticated
+
+Access Keys Created Fires when a new access key is generated Access Key payloads will contain the Access Keys token
+
+Deleted Fires when the access key is deleted
+
+Updated
+Fires when the access key is updated
+
+Projects Updated Fires when the project details get updated
+
+What are webhooks?
+A webhook enables the Auth API to push real-time notifications to your app. Auth API uses HTTPS to send these notifications to your app as a JSON payload. You can then use these notifications to execute actions in your backend systems. To learn more, see Auth API webhook events overview.
+
+Steps to receive webhooks
+You can start receiving event notifications in your app or in a 3rd platform by following these steps:
+
+Identify the events you want to monitor and the event payloads to parse.
+Create a webhook endpoint as an HTTP endpoint (URL) on your local server or with a 3rd party like Zapier.
+Handle requests from Auth API by parsing each event object and returning 2xx response status codes.
+Test that your webhook endpoint is working properly using our test connection feature.
+If you are coding your own endpoint, deploy your webhook endpoint so it’s a publicly accessible HTTPS URL.
+Register your publicly accessible HTTPS URL in the Auth API dashboard.
+
+Creating Your first hook
+Head to your dashboard. Pick the project you want to tie your endpoint to and scroll to 'Webhooks'. Click '+ Create New Hook' and follow the instructions.
+
+Creating a webhook via the API
+If you prefer a programmatic approach, you can create, update and delete webhooks (or any entity in The Auth API), head to our API docs - https://docs.theauthapi.com/
+
+Building your own webhook endpoint
+Creating a webhook endpoint is no different from creating any other page on your website. It’s an HTTP or HTTPS endpoint on your server with a URL. For local testing e.g. http://localhost:3000 consider using something like ngrok to route requests to your local machine. When it's ready to launch, it must be running over HTTPS on a publically accessible domain. You can use one endpoint to handle several different event types at once or set up individual endpoints for specific events.
+
+Testing your endpoint
+When creating your webhook, you can test your endpoint. It's important to test that the endpoint is up and running and receiving events successfully.
+
+How to no-code an endpoint
+The Auth API webhooks make it super simple to connect 3rd party applications like zapier.com, automate.io, stripe.com etc. to ensure you're able to use the platform without any developer skills.
+
+Security Best Practices
+To read more about best practices and security, read this article: https://support.theauthapi.com/article/9-best-practices-for-using-webhooks
