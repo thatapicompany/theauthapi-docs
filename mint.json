@@ -59,11 +59,11 @@
           "group": "Guides",
           "pages": [
             "guides/projects",
+            "guides/webhooks",
             "guides/creating-accounts",
             "guides/creating-api-keys",
             "guides/creating-access-keys",
             "guides/creating-invitations",
-            "guides/creating-webhooks",
             "guides/creating-users-roles"
           ]
         },
