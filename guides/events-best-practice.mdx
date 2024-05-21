@@ -1,0 +1,52 @@
+---
+title: Webhook Best Practices
+description: Implement these best practices when using webhooks.
+icon: "webhook"
+---
+
+### Implement these best practices when using webhooks.
+
+Webhooks provide a powerful method to track the state of your keys and security in The Auth API. Review these best practices to ensure your webhooks remain secure and function seamlessly with your integration.
+
+#### Event types
+
+Your webhook endpoints should be configured to receive only the types of events required by your integration. Listening for extra events (or all events) will put undue strain on your server and is not recommended. You can update the hooks listening events in your dashboard.
+
+#### Delivery attempts and retries
+
+Understand how to view delivery attempts, event logs, and the retry logic when webhook events aren’t acknowledged.
+
+#### View events
+
+When viewing information about a specific event through the Dashboard, you can check how many times we attempted to send an event to an endpoint by clicking on that endpoint URL in the Webhooks section. This shows the latest response from your endpoint, a list of all attempted webhooks, and the respective HTTP status codes our API received.
+
+#### Disable logic
+
+The Auth API currently won't disable an event firing to an endpoint which has failed in the past. It's important you regularly test your endpoints to ensure they are up and running as expected.
+
+#### Event handling
+
+Handling webhook events correctly is crucial to making sure your integration’s business logic works as expected.
+
+#### Handle duplicate events
+
+Webhook endpoints might occasionally receive the same event more than once. We advise you to guard against replayed event receipts by making your event processing idempotent. One way of doing this is logging the events you’ve processed tracking the unique GUID in the referring, and then not processing already-logged events.
+
+Order of events
+The Auth API can not guarantee the order in which events are generated. For example, creating ab=n API Key might generate the following events:
+
+api-key.created
+api-key.firstUsed
+api-key.updated
+Your endpoint shouldn’t expect delivery of these events in this order and should handle this accordingly. You can also use the API to fetch any missing objects (for example you can test that the Key is still active).
+
+Security
+Keeping your endpoints secure is critical to protecting your customers’ information. The Auth API provides several ways for you to verify events are coming from The Auth API in a secure manner.
+
+Receive events with an HTTPS server
+If you use an HTTPS URL for your webhook endpoint, The Auth API validates that the connection to your server is secure before sending your webhook data. For this to work, your server must be correctly configured to support HTTPS with a valid server certificate.
+
+Secrets
+The secret used for verifying that events come from The Auth API is available in the Webhooks section of the Dashboard. For each endpoint, click 'reveal secret'.
+
+The webhook theauthapi-signature : [SECRET]
