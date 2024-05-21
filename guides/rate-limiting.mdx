@@ -1,0 +1,20 @@
+Rate Limiting with TheAuthAPI.com
+Rate limiting is an important aspect of any API, including TheAuthAPI.com. It helps to prevent abuse and ensure fair usage among all users. Here's a brief guide on how rate limiting works with TheAuthAPI.com.
+
+Understanding Rate Limits
+TheAuthAPI.com uses a standard rate limiting system. Each endpoint may have a different rate limit. The limits could be based on a time window, for example, a certain number of requests per minute.
+
+Checking Your Rate Limit Status
+When you make a request to TheAuthAPI.com, the response headers will include information about your current rate limit status:
+
+X-RateLimit-Limit: The maximum number of requests you're permitted to make per minute.
+X-RateLimit-Remaining: The number of requests remaining in the current rate limit window.
+X-RateLimit-Reset: The time at which the current rate limit window resets in UTC epoch seconds.
+Exceeding Rate Limits
+If you exceed the rate limit, TheAuthAPI.com will respond with a 429 Too Many Requests HTTP status code. You should handle this response in your application and implement a backoff and retry strategy.
+
+Tips to Avoid Hitting Rate Limits
+Cache responses: To avoid unnecessary requests, cache responses whenever possible.
+Use exponential backoff: If you're close to hitting your rate limit, or if you've exceeded it, use an exponential backoff strategy. This means gradually increasing the wait time between requests to reduce the load on the server.
+Use webhooks: If TheAuthAPI.com supports it, use webhooks to get updates instead of polling the API.
+Remember, rate limits are there to protect the service and ensure fair usage. Always respect the rate limits and use the API responsibly.

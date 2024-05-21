@@ -15,6 +15,7 @@
       "to": "#07C983"
     }
   },
+  "openapi": ["/api-reference/openapi.json"],
   "topbarLinks": [
     {
       "name": "The Auth API",
@@ -39,13 +40,13 @@
     },
     {
       "name": "Community",
-      "icon": "slack",
+      "icon": "discord",
       "url": "https://theauthapi.com/community"
     },
     {
-      "name": "Blog",
+      "name": "Blog Articles",
       "icon": "newspaper",
-      "url": "https://theauthapi.com/blog"
+      "url": "https://theauthapi.com/articles"
     }
   ],
   "navigation": [
@@ -55,22 +56,24 @@
         "introduction",
         "quickstart",
         {
+          "group": "Guides",
+          "pages": [
+            "guides/projects",
+            "guides/creating-accounts",
+            "guides/creating-api-keys",
+            "guides/creating-access-keys",
+            "guides/creating-invitations",
+            "guides/creating-webhooks",
+            "guides/creating-users-roles"
+          ]
+        },
+        {
           "group": "Security",
-          "pages": ["access-tokens"]
+          "pages": ["security/access-tokens"]
         }
       ]
     },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
+
     {
       "group": "API Documentation",
       "pages": ["api-reference/introduction"]
@@ -78,9 +81,62 @@
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoint/delete-access-keys",
+        "api-reference/endpoint/delete-accounts",
+        "api-reference/endpoint/delete-api-keys",
+        "api-reference/endpoint/delete-invitations",
+        "api-reference/endpoint/delete-projects",
+        "api-reference/endpoint/delete-users-roles",
+        "api-reference/endpoint/delete-webhooks",
+        "api-reference/endpoint/get-",
+        "api-reference/endpoint/get-access-keys",
+        "api-reference/endpoint/get-accounts-1",
+        "api-reference/endpoint/get-accounts",
+        "api-reference/endpoint/get-analyticsapi-key-totals",
+        "api-reference/endpoint/get-analyticsproject-totals",
+        "api-reference/endpoint/get-api-keys-1",
+        "api-reference/endpoint/get-api-keys",
+        "api-reference/endpoint/get-api-keysauth",
+        "api-reference/endpoint/get-invitations-1",
+        "api-reference/endpoint/get-invitations-info",
+        "api-reference/endpoint/get-invitations",
+        "api-reference/endpoint/get-notifications",
+        "api-reference/endpoint/get-projects-1",
+        "api-reference/endpoint/get-projects",
+        "api-reference/endpoint/get-teammates",
+        "api-reference/endpoint/get-user-roles",
+        "api-reference/endpoint/get-webhooks-1",
+        "api-reference/endpoint/get-webhooks",
+        "api-reference/endpoint/get-webhookstopics",
+        "api-reference/endpoint/patch-access-keys-reactivate",
+        "api-reference/endpoint/patch-access-keys",
+        "api-reference/endpoint/patch-accounts",
+        "api-reference/endpoint/patch-api-keys-reactivate",
+        "api-reference/endpoint/patch-api-keys",
+        "api-reference/endpoint/patch-invitations",
+        "api-reference/endpoint/patch-projects",
+        "api-reference/endpoint/patch-users-roles",
+        "api-reference/endpoint/patch-users",
+        "api-reference/endpoint/patch-webhooks",
+        "api-reference/endpoint/post-access-keys",
+        "api-reference/endpoint/post-accounts-users",
+        "api-reference/endpoint/post-accounts",
+        "api-reference/endpoint/post-api-keys-rotate",
+        "api-reference/endpoint/post-api-keys",
+        "api-reference/endpoint/post-api-keysauth",
+        "api-reference/endpoint/post-authadd-user-from-firebase",
+        "api-reference/endpoint/post-authauthenticate",
+        "api-reference/endpoint/post-authemail-otc",
+        "api-reference/endpoint/post-authlogin",
+        "api-reference/endpoint/post-authrefresh-access-token",
+        "api-reference/endpoint/post-authsignup",
+        "api-reference/endpoint/post-authvalidate-login-code",
+        "api-reference/endpoint/post-gist",
+        "api-reference/endpoint/post-invitations-accept",
+        "api-reference/endpoint/post-invitations",
+        "api-reference/endpoint/post-projects",
+        "api-reference/endpoint/post-webhooks",
+        "api-reference/endpoint/post-webhooksping"
       ]
     }
   ],
