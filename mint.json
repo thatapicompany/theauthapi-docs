@@ -18,8 +18,8 @@
   "openapi": ["/api-reference/openapi.json"],
   "topbarLinks": [
     {
-      "name": "The Auth API",
-      "url": "mailto:hello@theauthapi.com"
+      "name": "Support",
+      "url": "mailto:support@theauthapi.com?subject=The%20Auth%20API%20Support%20Request"
     }
   ],
   "topbarCtaButton": {
@@ -32,20 +32,20 @@
       "url": "api-reference"
     },
     {
-      "name": "SDKs",
-      "url": "sdks"
+      "name": "Libraries",
+      "url": "libraries"
     }
   ],
   "anchors": [
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://theauthapi.com/docs"
+      "url": "/"
     },
     {
       "name": "Community",
       "icon": "discord",
-      "url": "https://theauthapi.com/community"
+      "url": "https://discord.gg/QnGXyvge"
     },
     {
       "name": "Blog Articles",
@@ -69,7 +69,6 @@
         }
       ]
     },
-
     {
       "group": "API Documentation",
       "pages": ["api-reference/introduction"]
@@ -134,11 +133,15 @@
         "api-reference/endpoint/post-webhooks",
         "api-reference/endpoint/post-webhooksping"
       ]
+    },
+    {
+      "group": "Libraries",
+      "pages": ["libraries/npm-package"]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "x": "https://x.com/theauthapi",
+    "github": "https://github.com/thatapicompany",
+    "linkedin": "https://www.linkedin.com/company/thatapicompany"
   }
 }
