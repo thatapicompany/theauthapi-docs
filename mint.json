@@ -30,6 +30,10 @@
     {
       "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "SDKs",
+      "url": "sdks"
     }
   ],
   "anchors": [
@@ -57,15 +61,7 @@
         "quickstart",
         {
           "group": "Guides",
-          "pages": [
-            "guides/projects",
-            "guides/events",
-            "guides/creating-accounts",
-            "guides/creating-api-keys",
-            "guides/creating-access-keys",
-            "guides/creating-invitations",
-            "guides/creating-users-roles"
-          ]
+          "pages": ["guides/projects", "guides/events"]
         },
         {
           "group": "Security",
