@@ -44,6 +44,7 @@ Head to your (dashboard)[https://app.theauthapi.com] . Pick the project you want
 If you prefer a programmatic approach, you can create, update and delete webhooks (or any entity in The Auth API), head to our API docs - https://docs.theauthapi.com/
 
 <CodeGroup>
+
 ```CURL curl.txt
 curl --location 'https://api.theauthapi.com/webhooks' \
 --header 'x-api-key: REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT' \
@@ -58,35 +59,37 @@ curl --location 'https://api.theauthapi.com/webhooks' \
     "status": "live"
 }'
 ```
-``` javascript HelloWorld.js
-var request = require('request');
-var options = {
-  'method': 'POST',
-  'url': 'https://api.theauthapi.com/webhooks',
-  'headers': {
-    'x-api-key': 'REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT'
-  },
-  body: '{\n    "name": "only required fields webhook",\n    "url": "https://webhook.site/3d224d6e-b525-45dd-9a60-5581df9264b9",\n    "projectId": "REPLACE_WITH_YOUR_PROJECT_ID",\n    "topics": [\n        "api-key.created"\n    ],\n    "httpMethod": "POST",\n    "status": "live"\n}'
 
+```javascript HelloWorld.js
+var request = require("request");
+var options = {
+  method: "POST",
+  url: "https://api.theauthapi.com/webhooks",
+  headers: {
+    "x-api-key": "REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT",
+  },
+  body: '{\n    "name": "only required fields webhook",\n    "url": "https://webhook.site/3d224d6e-b525-45dd-9a60-5581df9264b9",\n    "projectId": "REPLACE_WITH_YOUR_PROJECT_ID",\n    "topics": [\n        "api-key.created"\n    ],\n    "httpMethod": "POST",\n    "status": "live"\n}',
 };
 request(options, function (error, response) {
-if (error) throw new Error(error);
-console.log(response.body);
+  if (error) throw new Error(error);
+  console.log(response.body);
 });
-
 ```
+
 </CodeGroup>
 
 ### Building your own webhook endpoint
+
 Creating a webhook endpoint is no different from creating any other page on your website. It’s an HTTP or HTTPS endpoint on your server with a URL. For local testing e.g. http://localhost:3000 consider using something like (ngrok)[https://ngrok.com/] to route requests to your local machine. When it's ready to launch, it must be running over HTTPS on a publically accessible domain. You can use one endpoint to handle several different event types at once or set up individual endpoints for specific events.
 
 #### Testing your endpoint
+
 When creating your webhook, you can test your endpoint. It's important to test that the endpoint is up and running and receiving events successfully.
 
 #### How to no-code an endpoint
+
 The Auth API webhooks make it super simple to connect 3rd party applications like (zapier.com)[https://zapier.com/], (automate.io)[https://automate.io/], (stripe.com)[https://stripe.com/] etc. to ensure you're able to use the platform without any developer skills.
 
 #### Security Best Practices
-To read more about best practices and security, read this article: (Best Practices for Webhooks)[guides/events-best-practice].
 
-```
+To read more about best practices and security, read this article: (Best Practices for Webhooks)[guides/events-best-practice].
