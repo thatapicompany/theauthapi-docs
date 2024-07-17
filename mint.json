@@ -51,14 +51,19 @@
       "name": "Blog Articles",
       "icon": "newspaper",
       "url": "https://theauthapi.com/articles"
+    },
+    {
+      "name": "Postman Collection",
+      "icon": "rocket",
+      "url": "https://www.postman.com/thatapicompany/workspace/thatapicompany-public-documentation/collection/5578104-3992b420-6940-4377-bf56-599348c6cd01"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
       "pages": [
-        "introduction",
         "quickstart",
+        "introduction",
         {
           "group": "Guides",
           "pages": ["guides/projects", "guides/events"]

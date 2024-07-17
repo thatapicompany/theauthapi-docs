@@ -1,6 +1,6 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in under 5 minutes"
+title: 'Quickstart'
+description: 'Start building awesome documentation in under 5 minutes'
 ---
 
 ## QuickStart Guide
@@ -12,18 +12,41 @@ Welcome to The Auth API documentation. Before you start, please create your API 
 1. Create an [account](https://app.theauthapi.com)
 2. Create a new Project (this could be the name of your API)
 3. Generate a new 'Access Key' (sometimes referred to as a root key)
-4. Write down your Access Key and Project ID somewhere safe!
+4. Copy your 'Access Key' and Project ID somewhere safe!
 
-## Checkout our code samples
+### Let's create a new key
+
+Open you favourite terminal, and copy this code into it. Don't forget to replace `REPLACE_WITH_YOUR_PROJECT_ID` and `REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT` with your actual values!
+
+```bash
+curl --location 'https://api.theauthapi.com/api-keys/' \
+--header 'x-api-key: REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "YOUR_API_KEY_NAME",
+  "projectId": "REPLACE_WITH_YOUR_PROJECT_ID",
+  "customUserId": "OPTIONAL_STRING",
+  "customAccountId": "OPTIONAL_STRING",
+  "key": "OPTIONAL_STRING",
+  "customMetaData": {},
+  "expiry": "2050-01-01",
+  "rateLimitConfigs": {
+      "rateLimit": 10,
+      "rateLimitTtl": 60
+  }
+}'
+```
+
+## Next steps
 
 <CardGroup>
 
-<Card title="Style Your Docs" icon="code" href="/libraries/npm-package">
-  Install our node NPM package
+<Card title='Using node?' icon='code' href='/libraries/npm-package'>
+  Install our Node TypeScript SDK
 </Card>
 
 <Card
-  title="Checkout our code samples"
+  title="PHP, Go, Python etc"
   icon="square-code"
   href="https://github.com/thatapicompany/theauthapi-code-samples"
 >
