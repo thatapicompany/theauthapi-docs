@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "The Auth API Docs",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -13,6 +13,12 @@
     "anchors": {
       "from": "#0D9373",
       "to": "#07C983"
+    }
+  },
+  "api": {
+    "auth": {
+      "method": "key",
+      "name": "x-api-key"
     }
   },
   "openapi": ["/api-reference/openapi.json"],
@@ -94,7 +100,7 @@
         "api-reference/endpoint/get-accounts",
         "api-reference/endpoint/get-analyticsapi-key-totals",
         "api-reference/endpoint/get-analyticsproject-totals",
-        "api-reference/endpoint/get-api-keys-1",
+        "api-reference/endpoint/get-api-key",
         "api-reference/endpoint/get-api-keys",
         "api-reference/endpoint/get-api-keysauth",
         "api-reference/endpoint/get-invitations-1",

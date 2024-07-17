@@ -902,7 +902,7 @@
     "contact": {}
   },
   "tags": [{ "name": "auth_api_v1", "description": "" }],
-  "servers": [{ "url": "http://" }, { "url": "https://" }],
+  "servers": [{ "url": "https://api.theauthapi.com" }],
   "components": {
     "securitySchemes": {
       "api_key": {
