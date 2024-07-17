@@ -16,6 +16,7 @@
     }
   },
   "api": {
+    "baseUrl": "https://api.theauthapi.com",
     "auth": {
       "method": "key",
       "name": "x-api-key"
@@ -87,6 +88,7 @@
     {
       "group": "Endpoint Examples",
       "pages": [
+        "api-reference/endpoint/hello-world",
         "api-reference/endpoint/delete-access-keys",
         "api-reference/endpoint/delete-accounts",
         "api-reference/endpoint/delete-api-keys",
@@ -94,7 +96,6 @@
         "api-reference/endpoint/delete-projects",
         "api-reference/endpoint/delete-users-roles",
         "api-reference/endpoint/delete-webhooks",
-        "api-reference/endpoint/get-",
         "api-reference/endpoint/get-access-keys",
         "api-reference/endpoint/get-accounts-1",
         "api-reference/endpoint/get-accounts",
@@ -130,19 +131,11 @@
         "api-reference/endpoint/post-api-keys-rotate",
         "api-reference/endpoint/post-api-keys",
         "api-reference/endpoint/post-api-keysauth",
-        "api-reference/endpoint/post-authadd-user-from-firebase",
-        "api-reference/endpoint/post-authauthenticate",
-        "api-reference/endpoint/post-authemail-otc",
-        "api-reference/endpoint/post-authlogin",
-        "api-reference/endpoint/post-authrefresh-access-token",
-        "api-reference/endpoint/post-authsignup",
-        "api-reference/endpoint/post-authvalidate-login-code",
-        "api-reference/endpoint/post-gist",
         "api-reference/endpoint/post-invitations-accept",
         "api-reference/endpoint/post-invitations",
         "api-reference/endpoint/post-projects",
         "api-reference/endpoint/post-webhooks",
-        "api-reference/endpoint/post-webhooksping"
+        "api-reference/endpoint/post-webhooks-ping"
       ]
     },
     {

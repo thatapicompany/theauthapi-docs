@@ -4,30 +4,115 @@ description: 'Example section for showcasing API endpoints'
 ---
 
 <Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
+  ### Essential steps before doing anything else:
+
+1. Create an [account](https://app.theauthapi.com)
+2. Create a new Project (this could be the name of your API)
+3. Generate a new 'Access Key' (sometimes referred to as a root key)
+4. Copy your 'Access Key' and Project ID somewhere safe!
+
 </Note>
-
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API endpoints are authenticated using your 'Access token'.
 
-```json
-"security": [
-  {
-    "bearerAuth": []
+<CodeGroup>
+```bash curl.txt
+curl --request GET \
+ --url https://api.theauthapi.com/ \
+ --header 'x-api-key: REPLACE_WITH_YOUR_ACCESS_TOKEN'
+
+````
+
+```javascript helloWorld.js
+const options = {
+  method: 'GET',
+  headers: {
+    'x-api-key': 'REPLACE_WITH_YOUR_ACCESS_TOKEN'
   }
-]
+};
+
+fetch('https://api.theauthapi.com/', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+````
+
+```python hello_world.py
+import requests
+
+url = "https://api.theauthapi.com/"
+
+headers = {"x-api-key": "REPLACE_WITH_YOUR_ACCESS_TOKEN"}
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
 ```
+
+```php helloWorld.php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://api.theauthapi.com/",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    "x-api-key: REPLACE_WITH_YOUR_ACCESS_TOKEN"
+  ],
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+```
+
+```java HelloWorld.java
+HttpResponse<String> response = Unirest.get("https://api.theauthapi.com/")
+  .header("x-api-key", "REPLACE_WITH_YOUR_ACCESS_TOKEN")
+  .asString();
+```
+
+```go helloWorld.go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"io/ioutil"
+)
+
+func main() {
+
+	url := "https://api.theauthapi.com/"
+
+	req, _ := http.NewRequest("GET", url, nil)
+
+	req.Header.Add("x-api-key", "REPLACE_WITH_YOUR_ACCESS_TOKEN")
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+	body, _ := ioutil.ReadAll(res.Body)
+
+	fmt.Println(res)
+	fmt.Println(string(body))
+
+}
+```
+
+</CodeGroup>

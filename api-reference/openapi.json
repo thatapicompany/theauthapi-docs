@@ -747,13 +747,6 @@
         "responses": { "200": { "description": "" } }
       }
     },
-    "/gist": {
-      "post": {
-        "operationId": "GistController_create",
-        "parameters": [],
-        "responses": { "201": { "description": "" } }
-      }
-    },
     "/notifications": {
       "get": {
         "operationId": "NotifyController_welcomeMessage",

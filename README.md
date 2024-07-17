@@ -12,6 +12,10 @@ Run the following command at the root of your documentation (where mint.json is)
 sudo mintlify dev
 ```
 
+### Icons!
+
+Search for the icon you want to implement here: https://fontawesome.com/
+
 ###updating API endpoitns
 
 Run
