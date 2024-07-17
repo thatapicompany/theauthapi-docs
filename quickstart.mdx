@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+description: 'Add API key generation to your API in minutes'
 ---
 
 ## QuickStart Guide
@@ -14,11 +14,25 @@ Welcome to The Auth API documentation. Before you start, please create your API 
 3. Generate a new 'Access Key' (sometimes referred to as a root key)
 4. Copy your 'Access Key' and Project ID somewhere safe!
 
-### Let's create a new key
+### Let's create your fist key
 
-Open you favourite terminal, and copy this code into it. Don't forget to replace `REPLACE_WITH_YOUR_PROJECT_ID` and `REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT` with your actual values!
+<Steps>
+  <Step title="Create a key">
+Open your favourite terminal, copy this API creation code into it. Don't forget to replace `REPLACE_WITH_YOUR_PROJECT_ID` and `REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT` with your actual values!
 
 ```bash
+curl --location 'https://api.theauthapi.com/api-keys/' \
+--header 'x-api-key: REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "YOUR_API_KEY_NAME",
+  "projectId": "REPLACE_WITH_YOUR_PROJECT_ID"
+}'
+```
+
+<Accordion title="All the properties...">
+  Here's an example of all the properties you can post to create a key:
+  ```bash
 curl --location 'https://api.theauthapi.com/api-keys/' \
 --header 'x-api-key: REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT' \
 --header 'Content-Type: application/json' \
@@ -36,8 +50,58 @@ curl --location 'https://api.theauthapi.com/api-keys/' \
   }
 }'
 ```
+To automatically generate a key UID, you can remove the 'key' field.
+</Accordion>
 
-## Next steps
+  </Step>
+  <Step title="Server Response">
+You should see a response similar to this:
+```json
+{
+  "key": "OPTIONAL_STRING", //UID key name
+  "name": "YOUR_API_KEY_NAME",
+  "customMetaData": {},
+  "customAccountId": "OPTIONAL_STRING",
+  "customUserId": "OPTIONAL_STRING",
+  "env": "live",
+  "createdAt": "2024-07-17T13:18:22.153Z",
+  "updatedAt": "2024-07-17T13:18:22.153Z",
+  "isActive": true,
+  "expiresAt": "2050-01-01T00:00:00.000Z",
+  "rateLimitConfigs": { "rateLimit": 10, "rateLimitTtl": 60 },
+  "creationContext": {}
+}
+```
+  </Step>
+  <Step title="Now validate the key">
+ Run this CURL command in your terminal to validate the key is valid. Don't forget to replace the `REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT` and `YOUR_API_KEY`!
+  ```bash
+  curl --location --globoff --request POST 'https://api.theauthapi.com/api-keys/auth/YOUR_API_KEY' \
+--header 'x-api-key: REPLACE_WITH_YOUR_ACCESS_KEY_FOUND_IN_YOUR_ACCOUNT'
+  ```
+  </Step>
+   <Step title="Server Response">
+You should see a response similar to this:
+```json
+{
+  "key": "OPTIONAL_STRING",
+  "name": "YOUR_API_KEY_NAME",
+  "customMetaData": {},
+  "customAccountId": "OPTIONAL_STRING",
+  "customUserId": "OPTIONAL_STRING",
+  "env": "live",
+  "createdAt": "2024-07-17T13:18:22.153Z",
+  "updatedAt": "2024-07-17T13:38:44.899Z",
+  "isActive": true,
+  "expiresAt": "2050-01-01T00:00:00.000Z",
+  "rateLimitConfigs": { "rateLimit": 10, "rateLimitTtl": 60 },
+  "creationContext": {}
+}
+```
+  </Step>
+</Steps>
+### What next?
+Now you know how to create an API key, you can start to implement it into your API. Here are some tools to help you get started:
 
 <CardGroup>
 
@@ -50,6 +114,6 @@ curl --location 'https://api.theauthapi.com/api-keys/' \
   icon="square-code"
   href="https://github.com/thatapicompany/theauthapi-code-samples"
 >
-  Checkout some code samples
+  Checkout our code samples
 </Card>
 </CardGroup>
