@@ -1,0 +1,39 @@
+---
+title: Automatically expiring a key
+description: How to create a key with future expiry date
+icon: "clock"
+---
+
+## Setting an expiry dates
+
+In this example, we're creating a key to expire in the future.
+
+```bash
+curl --location 'https://api.theauthapi.com/api-keys/' \
+--header 'Authorization: live_access_CvJJwVGH6Jl3WMJ3uHv****' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: live_access_CvJJwVGH6Jl3WMJ3uHvq6L6RcjWwODbP0ukyMxbK3594u26kLVRB******' \
+--data '{
+    "name": "key-name",
+    "expiry": "2034-11-04T17:16:00.000Z"
+}'
+```
+
+#### Results
+
+```bash
+{
+    "key": "live_NeVvE0eXn90rp8CBiBIK9Jn76RtDfNbuQqlhs50WcV0TjtWlE*****",
+    "name": "key-name",
+    "customMetaData": {},
+    "customAccountId": null,
+    "customUserId": null,
+    "env": "live",
+    "createdAt": "2024-11-03T17:40:21.835Z",
+    "updatedAt": "2024-11-03T17:40:21.835Z",
+    "isActive": true,
+    "expiresAt": "2034-11-04T17:16:00.000Z",
+    "rateLimitConfigs": null,
+    "creationContext": {}
+}
+```

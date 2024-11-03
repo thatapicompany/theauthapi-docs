@@ -1,17 +1,87 @@
-Rate Limiting with TheAuthAPI.com
-Rate limiting is an important aspect of any API, including TheAuthAPI.com. It helps to prevent abuse and ensure fair usage among all users. Here's a brief guide on how rate limiting works with TheAuthAPI.com.
+---
+title: Rate limiting
+description: How to protect your API and give tiered access to your API
+icon: "clock"
+---
 
-Understanding Rate Limits
+### Introduction
+
+Rate limiting keys helps to prevent abuse to ensure fair usage and can be used to fix your customer's usuage to their agreed access allowance.
+
+#### Understanding Rate Limits
+
 TheAuthAPI.com uses a standard rate limiting system. Each endpoint may have a different rate limit. The limits could be based on a time window, for example, a certain number of requests per minute.
+
+#### Adding a limit
+
+In this example, we're creating a key that allows 10 requests per minute.
+
+```bash
+curl --location 'https://api.theauthapi.com/api-keys/' \
+--header 'Authorization: live_access_CvJJwVGH6Jl3WMJ3uHvq6L6RcjWwODbP0***' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: live_access_xvL1j3AfSQSyo2Z9LdzVSEt9tTuNWfP9GDr8DVULF*****' \
+--data '{
+    "name": "key-name",
+    "rateLimitConfigs": {
+        "rateLimit": 10,
+        "rateLimitTtl": 60
+    }
+
+}'
+```
 
 Checking Your Rate Limit Status
 When you make a request to TheAuthAPI.com, the response headers will include information about your current rate limit status:
 
-X-RateLimit-Limit: The maximum number of requests you're permitted to make per minute.
-X-RateLimit-Remaining: The number of requests remaining in the current rate limit window.
-X-RateLimit-Reset: The time at which the current rate limit window resets in UTC epoch seconds.
+#### Headers
+
+- `ratelimit-limit`: The maximum number of requests you're permitted to make per minute.
+- `ratelimit-remaining`: The number of requests remaining in the current rate limit window.
+- `ratelimit-reset`: The time at which the current rate limit window resets in UTC epoch seconds.
+- `ratelimit-consumed`: The number of requests consumed.
+
+```http
+retry-after-seconds: 30.074
+ratelimit-limit: 10
+ratelimit-remaining: 0
+ratelimit-consumed: 10
+ratelimit-reset: 2024-11-03T17:19:46.352Z
+```
+
+#### Good Result - 200
+
+```json
+{
+  "key": "live_cQkeqA79HV8*********",
+  "name": "Name your key!",
+  "customMetaData": {},
+  "customAccountId": null,
+  "customUserId": null,
+  "env": "live",
+  "createdAt": "2024-11-03T17:09:01.623Z",
+  "updatedAt": "2024-11-03T17:09:01.623Z",
+  "isActive": true,
+  "expiresAt": "2024-11-04T17:16:00.000Z",
+  "rateLimitConfigs": {
+    "rateLimit": 10,
+    "rateLimitTtl": 60
+  },
+  "creationContext": {}
+}
+```
+
+#### Rate limit hit - 429
+
 Exceeding Rate Limits
 If you exceed the rate limit, TheAuthAPI.com will respond with a 429 Too Many Requests HTTP status code. You should handle this response in your application and implement a backoff and retry strategy.
+
+```json
+{
+  "statusCode": 429,
+  "message": "Too many requests"
+}
+```
 
 Tips to Avoid Hitting Rate Limits
 Cache responses: To avoid unnecessary requests, cache responses whenever possible.

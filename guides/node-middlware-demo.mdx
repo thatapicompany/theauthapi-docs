@@ -1,0 +1,46 @@
+---
+title: Building a middlware
+description: How to create your first middlware
+icon: "hand"
+---
+
+In this quick example, we'll create a middlware for express. The middlware checks every request to ensure it has a valid API key.
+
+```bash
+npm i theauthapi express --save
+```
+
+```javascript
+import TheAuthAPI from "theauthapi";
+import express from "express";
+const app = express();
+
+const theAuthAPI = new TheAuthAPI.default("${accessKey}");
+
+app.use(function (req, res, next) {
+  if (req.headers["x-api-key"]) {
+    theAuthAPI.apiKeys
+      .authenticateKey(req.headers["x-api-key"])
+      .then((key) => {
+        if (!key) {
+          res.status(401).send({ message: "Invalid API key" });
+        }
+        req.key = key;
+        next();
+      })
+      .catch((err) => {
+        res.status(500).send({ message: err.message });
+      });
+  } else {
+    res.status(401).send({
+      message: "No API key, be sure to set it as the 'x-api-key' header",
+    });
+  }
+});
+
+app.get("/", (req, res) => {
+  res.send(req.key);
+});
+
+app.listen(3000);
+```

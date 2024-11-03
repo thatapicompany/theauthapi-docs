@@ -72,8 +72,18 @@
         "quickstart",
         "introduction",
         {
+          "group": "Examples",
+          "pages": ["guides/node-middlware-demo"]
+        },
+        {
           "group": "Guides",
-          "pages": ["guides/projects", "guides/events"]
+          "pages": [
+            "guides/authenticating-a-key",
+            "guides/rate-limiting",
+            "guides/adding-an-expiry-date",
+            "guides/projects",
+            "guides/events"
+          ]
         },
         {
           "group": "Security",
